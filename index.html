@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      @media screen and (max-width: 1600px) {
+        .container {
+          max-width: 1250px;
+        }
+      }
+
+      @media screen and (max-width: 1198px) {
+        .categories-hieght {
+          height: 100px;
+        }
+
+        .categories-card {
+          width: 24%;
+          height: 100px;
+        }
+      }
+
+      @media screen and (max-width: 980px) {
+        .animate-menu {
+          animation: animation-menu linear 0.5s;
+        }
+
+        @keyframes animation-menu {
+          0% {
+            margin-left: 0px;
+            opacity: 1;
+          }
+
+          100% {
+            margin-left: 0px;
+            opacity: 1;
+          }
+        }
+
+        .dropdown-width {
+          width: auto;
+        }
+
+        .home__dropdown-width {
+          min-width: 100%;
+          left: 0;
+        }
+
+        .subscribe-title {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+
+        .subscribe-form {
+          width: 100%;
+        }
+      }
+
+      @media screen and (max-width: 770px) {
+        .categories-hieght {
+          height: 100px;
+        }
+      }
+      @media screen and (max-width: 767px) {
+        .categories-card {
+          width: 49%;
+          height: 100px;
+        }
+
+        .subscribe-section-bg{
+          background-image: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- header start  -->
+
+    <header>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container d-flex justify-content-between">
+          <div
+            class="d-flex flex-column gap-2 p-4 cursor-pointer bg-white"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasWithBothOptions"
+            aria-controls="offcanvasWithBothOptions"
+            id="scroll-aside"
+          >
+            <span class="bg-dark aside__size"></span>
+            <span class="bg-dark aside__size"></span>
+            <span class="bg-dark aside__size"></span>
+          </div>
+          <div
+            class="d-none flex-column gap-2 px-3 py-3 cursor-pointer bg-dark position-fixed z-2 rounded-3 toggler-position"
+            
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasWithBothOptions1"
+            aria-controls="offcanvasWithBothOptions1"
+            id="scroll-aside2"
+          >
+            <span class="bg-white aside__size2"></span>
+            <span class="bg-white aside__size2"></span>
+            <span class="bg-white aside__size2"></span>
+          </div>
+          <a class="navbar-brand" href="#"
+            ><img src="assets/logo.png" alt="Tech" width="100vw"
+          /></a>
+          <div
+            class="navbar-toggler bg-transparent border-0 "
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </div>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div
+              class="d-flex justify-content-between align-items-center flex-column flex-lg-row w-100"
+            >
+              <ul class="navbar-nav mt-1 margin-left">
+                <li
+                  class="nav-item"
+                  onmouseover="showHomeDropdown()"
+                  onmouseout="hideHomeDropdown()"
+                >
+                  <a class="nav-link border_bottom text-dark " aria-current="page" href="#"
+                    >HOME</a
+                  >
+                  <div
+                    class="home__dropdown-width position-absolute d-none bg-white z-1 rounded-4 shadow"
+                    id="home__dropdown"
+                  >
+                    <ul
+                      class="navbar-nav d-flex flex-column py-4"
+                      onmouseover="showHomeDropdown()"
+                      onmouseout="hideHomeDropdown()"
+                    >
+                      <li class="nav-item">
+                        <a
+                          href="#"
+                          class="nav-link line-draw line-draw1 line-draw2 d-flex align-items-center"
+                        >
+                          HOME 1
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="#"
+                          class="nav-link line-draw d-flex align-items-center"
+                          >HOME 2</a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="#"
+                          class="nav-link line-draw d-flex align-items-center"
+                          >HOME 3</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li
+                  class="nav-item"
+                  onmouseover="showFeatureDropdown()"
+                  onmouseout="hideFeatureDropdown()"
+                >
+                  <a class="nav-link border_bottom text-dark" href="#">FEATURES</a>
+                  <div
+                    class="home__dropdown-width position-absolute d-none bg-white z-1 rounded-4 shadow"
+                    id="feature__dropdown"
+                  >
+                    <ul
+                      class="navbar-nav d-flex flex-column py-4"
+                      onmouseover="showFeatureDropdown()"
+                      onmouseout="hideFeatureDropdown()"
+                    >
+                      <li class="nav-item">
+                        <a
+                          href="#"
+                          class="nav-link line-draw d-flex align-items-center"
+                          >Post Type</a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="#"
+                          class="nav-link line-draw d-flex align-items-center"
+                          >Sidebar</a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="#"
+                          class="nav-link line-draw d-flex align-items-center"
+                          >Post Layout</a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="#"
+                          class="nav-link line-draw d-flex align-items-center"
+                          >Tables of content</a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="#"
+                          class="nav-link line-draw d-flex align-items-center"
+                          >Updated Date</a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="#"
+                          class="nav-link line-draw d-flex align-items-center"
+                          >Comments Template</a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="#"
+                          class="nav-link line-draw d-flex align-items-center"
+                          >Autoload Next Post</a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="#"
+                          class="nav-link line-draw d-flex align-items-center"
+                          >Page 404</a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="#"
+                          class="nav-link line-draw d-flex align-items-center"
+                          >Search Result</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li
+                  class="nav-item"
+                  onmouseover="showmegamenuDropdown()"
+                  onmouseout="hidemegamenuDropdown()"
+                >
+                  <a class="nav-link border_bottom text-dark" href="#">MEGA MENU</a>
+                  <div
+                    class="home__dropdown-width left bg-white position-absolute container-fluid w-100 shadow d-none z-1"
+                    id="megamenu__dropdown"
+                    onmouseover="showmegamenuDropdown()"
+                    onmouseout="hidemegamenuDropdown()"
+                  >
+                    <div class="row rounded-4 py-4">
+                      <div class="d-flex align-items-center">
+                        <div
+                          class="bg-primary rounded-4 mx-2 mb-1 megamenu-line"
+                        ></div>
+                        <h4>Technology</h4>
+                      </div>
+                      <div
+                        class="col-12 col-lg-4 py-4 d-flex flex-column gap-4"
+                      >
+                        <div class="col__card d-flex mb-2">
+                          <div class="d-flex">
+                            <img
+                              src="assets/mobile.jpg"
+                              alt=""
+                              width="85px"
+                              height="85px"
+                              class="bg-dark rounded-4"
+                            />
+                            <div
+                              class="d-flex flex-column justify-content-center"
+                            >
+                              <a href="#" class="nav-link fw-bold"
+                                >Headsets Are Better if You’re Playing Games
+                              </a>
+                              <span>June 6, 2023</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col__card d-flex mt-2">
+                          <div class="d-flex">
+                            <img
+                              src="assets/girl.jpg"
+                              alt=""
+                              width="85px"
+                              height="85px"
+                              class="bg-dark rounded-4"
+                            />
+                            <div
+                              class="d-flex flex-column justify-content-center"
+                            >
+                              <a href="#" class="nav-link fw-bold"
+                                >Headsets Are Better if You’re Playing Games
+                              </a>
+                              <span>June 6, 2023</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="col-12 col-lg-4 py-4 d-flex flex-column gap-4"
+                      >
+                        <div class="col__card d-flex mb-2">
+                          <div class="d-flex">
+                            <img
+                              src="assets/camera.jpg"
+                              alt=""
+                              width="85px"
+                              height="85px"
+                              class="bg-dark rounded-4"
+                            />
+                            <div
+                              class="d-flex flex-column justify-content-center"
+                            >
+                              <span class="text-start">
+                                <a href="#" class="nav-link text-start fw-bold"
+                                  >Headsets Are Better if You’re Playing Games
+                                </a>
+                              </span>
+                              <span>June 6, 2023</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col__card d-flex mt-2">
+                          <div class="d-flex">
+                            <img
+                              src="assets/men-mobile.jpg"
+                              alt=""
+                              width="85px"
+                              height="85px"
+                              class="bg-dark rounded-4"
+                            />
+                            <div
+                              class="d-flex flex-column justify-content-center"
+                            >
+                              <span>
+                                <a href="#" class="nav-link fw-bold"
+                                  >Headsets Are Better if You’re Playing Games
+                                </a>
+                              </span>
+                              <span>June 6, 2023</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-12 col-md-6 col-lg-4">
+                        <div class="row">
+                          <div class="col-12 col-md-6 d-flex flex-column gap-3">
+                            <div
+                              class="menu-img__bg rounded-4 d-flex align-items-center text-white"
+                            >
+                              phone
+                            </div>
+                            <div
+                              class="menu-img__bg rounded-4 d-flex align-items-center text-white"
+                            >
+                              phone
+                            </div>
+                          </div>
+                          <div
+                            class="col-12 col-md-6 d-flex flex-column gap-3 py-3 py-md-0"
+                          >
+                            <div
+                              class="menu-img__bg rounded-4 d-flex align-items-center text-white"
+                            >
+                              phone
+                            </div>
+                            <div
+                              class="menu-img__bg rounded-4 d-flex align-items-center text-white"
+                            >
+                              phone
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link border_bottom text-dark"
+                    aria-current="page"
+                    href="#"
+                    onmouseover="showPageDropdown()"
+                    onmouseout="hidePageDropdown()"
+                    >PAGES</a
+                  >
+                  <div
+                    class="home__dropdown-width position-absolute d-none bg-white z-1 rounded-4 shadow"
+                    id="page__dropdown"
+                  >
+                    <ul
+                      class="navbar-nav d-flex flex-column py-4"
+                      onmouseover="showPageDropdown()"
+                      onmouseout="hidePageDropdown()"
+                    >
+                      <li class="nav-item">
+                        <a
+                          href="#"
+                          class="nav-link line-draw d-flex align-items-center"
+                          >About Us</a
+                        >
+                      </li>
+                      <li class="nav-item">
+                        <a
+                          href="#"
+                          class="nav-link line-draw d-flex align-items-center"
+                          >Coming Soon</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link border_bottom text-dark">CONTACT</a>
+                </li>
+              </ul>
+              <div class="d-flex justify-content-between align-items-center">
+                <i
+                  class="fa fa-search cursor-pointer mx-4"
+                  onclick="formdblock()"
+                  id="headersearch"
+                ></i>
+                <div class="indent mx-3 "></div>
+                <button class="btn subcribe-bg mx-2 rounded-pill px-4">
+                  Subcribe
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div
+        class="offcanvas offcanvas-start"
+        data-bs-scroll="true"
+        tabindex="-1"
+        id="offcanvasWithBothOptions1"
+        aria-labelledby="offcanvasWithBothOptionsLabel"
+      >
+        <div class="offcanvas-header">
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <div
+            class="row rounded-4 d-flex flex-column justify-content-center align-items-end"
+          >
+            <div class="aside__close col-12 d-flex justify-content-end"></div>
+            <div
+              class="col-12 d-flex justify-content-center align-items-center"
+            >
+              <img src="assets/logo.png" alt="" class="p-4 aside__logo" />
+            </div>
+            <h4>What's hot</h4>
+            <div class="col-12 py-4 d-flex gap-3 flex-column">
+              <div class="col__card d-flex mb-2">
+                <div class="d-flex gap-4">
+                  <img
+                    src="assets/mobile.jpg"
+                    alt=""
+                    width="85px"
+                    height="85px"
+                    class="bg-dark rounded-4"
+                  />
+                  <div class="d-flex flex-column justify-content-center w-75">
+                    <a href="#" class="nav-link fw-bold"
+                      >Headsets Are Better if You’re Playing Games
+                    </a>
+                    <span>June 6, 2023</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col__card d-flex mt-2">
+                <div class="d-flex gap-4">
+                  <img
+                    src="assets/girl.jpg"
+                    alt=""
+                    width="85px"
+                    height="85px"
+                    class="bg-dark rounded-4"
+                  />
+                  <div class="d-flex flex-column justify-content-center w-75">
+                    <a href="#" class="nav-link fw-bold"
+                      >Headsets Are Better if You’re Playing Games
+                    </a>
+                    <span>June 6, 2023</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 py-4 d-flex gap-3 flex-column">
+              <div class="col__card d-flex mb-2">
+                <div class="d-flex gap-4">
+                  <img
+                    src="assets/camera.jpg"
+                    alt=""
+                    width="85px"
+                    height="85px"
+                    class="bg-dark rounded-4"
+                  />
+                  <div class="d-flex flex-column justify-content-center w-75">
+                    <span class="text-start">
+                      <a href="#" class="nav-link text-start fw-bold"
+                        >Headsets Are Better if You’re Playing Games
+                      </a>
+                    </span>
+                    <span>June 6, 2023</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col__card d-flex mt-2">
+                <div class="d-flex gap-4">
+                  <img
+                    src="assets/men-mobile.jpg"
+                    alt=""
+                    width="85px"
+                    height="85px"
+                    class="bg-dark rounded-4"
+                  />
+                  <div class="d-flex flex-column justify-content-center w-75">
+                    <span>
+                      <a href="#" class="nav-link fw-bold"
+                        >Headsets Are Better if You’re Playing Games
+                      </a>
+                    </span>
+                    <span>June 6, 2023</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 d-flex flex-column justify-content-start gap-3">
+              <span class="fw-bold">+49 241 241</span>
+              <span>demo@rivaxstudio.com</span>
+              <span class="d-flex gap-4">
+                <a href="https://www.twitter.com" target="_blank">
+                  <i class="fa fa-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com" target="_blank">
+                  <i class="fa fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com" target="_blank">
+                  <i class="fa fa-facebook-square"></i>
+                </a>
+                <a href="https://www.github.com" target="_blank">
+                  <i class="fa fa-github"></i>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="offcanvas offcanvas-end"
+        data-bs-scroll="true"
+        tabindex="-1"
+        id="offcanvasWithBothOptions"
+        aria-labelledby="offcanvasWithBothOptionsLabel"
+      >
+        <div class="offcanvas-header">
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <div
+            class="row rounded-4 d-flex flex-column justify-content-center align-items-end"
+          >
+            <div class="aside__close col-12 d-flex justify-content-end"></div>
+            <div
+              class="col-12 d-flex justify-content-center align-items-center"
+            >
+              <img src="assets/logo.png" alt="" class="p-4 aside__logo" />
+            </div>
+            <h4>What's hot</h4>
+            <div class="col-12 py-4 d-flex gap-3 flex-column">
+              <div class="col__card d-flex mb-2">
+                <div class="d-flex gap-4">
+                  <img
+                    src="assets/mobile.jpg"
+                    alt=""
+                    width="85px"
+                    height="85px"
+                    class="bg-dark rounded-4"
+                  />
+                  <div class="d-flex flex-column justify-content-center w-75">
+                    <a href="#" class="nav-link fw-bold"
+                      >Headsets Are Better if You’re Playing Games
+                    </a>
+                    <span>June 6, 2023</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col__card d-flex mt-2">
+                <div class="d-flex gap-4">
+                  <img
+                    src="assets/girl.jpg"
+                    alt=""
+                    width="85px"
+                    height="85px"
+                    class="bg-dark rounded-4"
+                  />
+                  <div class="d-flex flex-column justify-content-center w-75">
+                    <a href="#" class="nav-link fw-bold"
+                      >Headsets Are Better if You’re Playing Games
+                    </a>
+                    <span>June 6, 2023</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 py-4 d-flex gap-3 flex-column">
+              <div class="col__card d-flex mb-2">
+                <div class="d-flex gap-4">
+                  <img
+                    src="assets/camera.jpg"
+                    alt=""
+                    width="85px"
+                    height="85px"
+                    class="bg-dark rounded-4"
+                  />
+                  <div class="d-flex flex-column justify-content-center w-75">
+                    <span class="text-start">
+                      <a href="#" class="nav-link text-start fw-bold"
+                        >Headsets Are Better if You’re Playing Games
+                      </a>
+                    </span>
+                    <span>June 6, 2023</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col__card d-flex mt-2">
+                <div class="d-flex gap-4">
+                  <img
+                    src="assets/men-mobile.jpg"
+                    alt=""
+                    width="85px"
+                    height="85px"
+                    class="bg-dark rounded-4"
+                  />
+                  <div class="d-flex flex-column justify-content-center w-75">
+                    <span>
+                      <a href="#" class="nav-link fw-bold"
+                        >Headsets Are Better if You’re Playing Games
+                      </a>
+                    </span>
+                    <span>June 6, 2023</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 d-flex flex-column justify-content-start gap-3">
+              <span class="fw-bold">+49 241 241</span>
+              <span>demo@rivaxstudio.com</span>
+              <span class="d-flex gap-4">
+                <a href="https://www.twitter.com" target="_blank">
+                  <i class="fa fa-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com" target="_blank">
+                  <i class="fa fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com" target="_blank">
+                  <i class="fa fa-facebook-square"></i>
+                </a>
+                <a href="https://www.github.com" target="_blank">
+                  <i class="fa fa-github"></i>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="d-none justify-content-center align-items-center position-fixed bg-white w-100 h-50 z-3 top-0"
+        id="form-open"
+      >
+        <div
+          class="position-absolute top-0 bg-light px-2 cursor-pointer formClose-right"
+          onclick="formclose()"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div
+          class="d-flex justify-content-center flex-column gap-5 align-items-center w-100"
+        >
+          <h1 class="search-dropdown">What are you looking for?</h1>
+          <div
+            class="w-50 text-start rounded-pill px-1 py-1 bg-white footer__form-box fw-bold text-secondary px-2 py-2"
+          >
+            <form
+              action="/"
+              class="d-flex justify-content-between align-items-center bg-transparent"
+            >
+              <input
+                type="search"
+                placeholder="Search ..."
+                class="border-0 px-2 w-100 rounded-pill outline"
+              />
+              <button class="border-0 bg-white" type="submit">
+                <i class="fa fa-search cursor-pointer mx-2"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- header end  -->
+
+    <hr />
+
+    <!-- categories section start  -->
+
+    <section
+      class="container d-flex justify-content-center align-items-center pt-3"
+    >
+      <div class="d-flex w-100 h-100 justify-content-between flex-wrap">
+        <div class="categories-card mb-3">
+          <div
+            class="categories__bg-gadget rounded-4 w-100 text-white d-flex align-items-center justify-content-center fw-bold"
+          >
+            <a
+              href=""
+              class="nav-link rounded-4 categories-link d-flex justify-content-center align-items-center font-family"
+            >
+              Gadget
+            </a>
+          </div>
+        </div>
+        <div class="categories-card mb-3">
+          <div
+            class="categories__bg-gaming rounded-4 text-white d-flex align-items-center justify-content-center fw-bold"
+          >
+            <a
+              href=""
+              class="nav-link rounded-4 categories-link d-flex justify-content-center align-items-center font-family"
+            >
+              Gaming
+            </a>
+          </div>
+        </div>
+        <div class="categories-card">
+          <div
+            class="categories__bg-phones rounded-4 text-white d-flex align-items-center justify-content-center fw-bold"
+          >
+            <a
+              href=""
+              class="nav-link rounded-4 categories-link d-flex justify-content-center align-items-center font-family"
+            >
+              Phones
+            </a>
+          </div>
+        </div>
+        <div class="categories-card">
+          <div
+            class="categories__bg-news rounded-4 text-white d-flex align-items-center justify-content-center fw-bold"
+          >
+            <a
+              href=""
+              class="nav-link rounded-4 categories-link d-flex justify-content-center align-items-center font-family"
+            >
+              News
+            </a>
+          </div>
+        </div>
+        <div class="categories-card d-none d-xl-block">
+          <div
+            class="categories__bg-technology rounded-4 text-white d-flex align-items-center justify-content-center fw-bold"
+          >
+            <a
+              href=""
+              class="nav-link rounded-4 categories-link d-flex justify-content-center align-items-center font-family"
+            >
+              Technology
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- categories section end -->
+
+    <!-- news section start  -->
+
+    <section class="container pb-5">
+      <div
+        class="row d-flex justify-content-center align-items-center text-center"
+      >
+        <div
+          class="col-12 d-md-none d-xl-block col-xl-3 d-flex justify-content-center py-3 py-lg-0 px-2"
+        >
+          <div
+            class="news__bg d-flex justify-content-center align-items-end my-3 rounded-4 px-2 cursor-pointer"
+          >
+            <div class="laptop-bg-before rounded-4"></div>
+            <div class="bg-white px-3 py-3 my-4 rounded-3">
+              <span class="text-start d-flex align-items-center gap-1">
+                <div class="rounded-circle dot"></div>
+                News</span
+              >
+              <a href="" class="nav-link card__heading card-fs text-start">
+                <h4 class="fw-bold font-family lh-base ">
+                  Top 10 Largest Hot High-Quality Earphone
+                </h4>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-3  d-flex justify-content-center py-3 py-lg-0">
+          <div
+            class="news__bg d-flex justify-content-center align-items-end my-3 rounded-4 px-2 cursor-pointer"
+          >
+            <div class="earbuds-bg-before rounded-4"></div>
+            <div class="bg-white px-3 py-3 my-4 rounded-3">
+              <span class="text-start d-flex align-items-center gap-1">
+                <div class="rounded-circle dot"></div>
+                News</span
+              >
+              <a
+                href=""
+                class="nav-link card__heading card-fs text-start fw-bolder"
+              >
+                <h4 class="fw-bold font-family lh-base">
+                  Portable Bluetooth Speakers That Can Go Literally Anywhere
+                </h4>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-6   py-3 py-md-0 custom-height " >
+          <div
+            id="myCarouselCheck"
+            class="carousel slide"
+            data-ride="carousel"
+            data-touch="true"
+          >
+            <div
+              class="carousel-indicators pb-2  d-flex justify-content-end align-items-center indicator-width"
+            >
+              <button
+                type=""
+                data-bs-target="#myCarouselCheck"
+                data-bs-slide-to="0"
+                class="indicator-bg active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#myCarouselCheck"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+                class="indicator-bg"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#myCarouselCheck"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+                class="indicator-bg"
+              ></button>
+            </div>
+            <div class="carousel-inner rounded-3 custom-height" >
+              <div
+                class="carousel-item carousel-item--bg1 active custom-height"
+              >
+                <!-- <img src="assets/mobile-on-laptop.jpg" class="d-block w-100" alt="..."> -->
+                <div
+                  class=" d-none d-lg-block bg-white text-dark rounded-3  position-absolute bottom-0 caption-carousel  "
+                >
+                  <span
+                    class="d-flex justify-content-start align-items-center w-100 px-3 gap-1 cursor-pointer font-family"
+                  >
+                    <div class="rounded-circle dot"></div>
+                    Technology
+                  </span>
+                  <h4
+                    class="w-100 px-3 text-start fw-bold text-dark cursor-pointer card__heading lh-base"
+                  >
+                    Samsung Galaxy A52 5G Receives Wi-Fi Certification
+                  </h4>
+                </div>
+              </div>
+              <div
+                class="carousel-item carousel-item--bg2 custom-height"
+              >
+                <!-- <img src="assets/mobile-on-laptop.jpg" class="d-block w-100" alt="..."> -->
+                <div
+                  class="caption-carousel d-none d-md-block bg-white text-dark rounded-3 position-absolute bottom-0 "
+                >
+                  <span
+                    class="d-flex justify-content-start align-items-center w-100 gap-1  px-3 cursor-pointer font-family"
+                  >
+                    <div class="rounded-circle dot"></div>
+                    News
+                  </span>
+                  <h4
+                    class="w-100 px-3 text-start fw-bold text-dark cursor-pointer card__heading lh-base"
+                  >
+                    2021 Apple MacBook Air: Apples New Leak Reveals Razor-thin
+                    Redesign
+                  </h4>
+                </div>
+              </div>
+              <div
+                class="carousel-item carousel-item--bg3 custom-height"
+              >
+                <!-- <img src="assets/mobile-on-laptop.jpg" class="d-block w-100" alt="..."> -->
+                <div
+                  class="caption-carousel d-none d-md-block bg-white text-dark rounded-3 position-absolute bottom-0 "
+                >
+                  <span
+                    class="d-flex justify-content-start align-items-center w-100 gap-1  px-3 cursor-pointer font-family"
+                  >
+                    <div class="rounded-circle dot"></div>
+                    Phones
+                  </span>
+                  <h4
+                    class="w-100 px-3 text-start fw-bold text-dark cursor-pointer card__heading lh-base"
+                  >
+                    Onboard Cameras Allow Disabled Quadcopters to Fly
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- news section end  -->
+
+    <!-- gadgets section start  -->
+
+    <section class="container mb-5">
+      <div class="d-flex align-items-center">
+        <div class="bg-primary rounded-4 mx-2 mb-1 gadget-heading"></div>
+        <h4 class="fw-bold ">Don't Miss</h4>
+      </div>
+      <div class="row">
+        <div
+          class="col-12 col-md-6 col-xl-3 d-flex flex-column align-items-center justify-content-start mt-3"
+        >
+          <div class="d-flex flex-column gap-3 p-4 card rounded-4 shadow-hover  ">
+            
+            <div class=" gadgets rounded-4 overflow-hidden  ">
+              <img
+              src="assets/earbuds.jpg"
+              alt=""
+              width="100%"
+              class="rounded-4"
+            />            </div>
+            <span class="mx-1 d-flex align-items-center gap-1">
+              <div class="rounded-circle dot"></div>
+              Gadget
+            </span>
+            <a href="#" class="card__heading">
+              <h5 class="fw-bold lh-base ">Computer Filters Noise to Make You a Better Listener</h5>
+            </a>
+            <div class="d-flex">
+              <img
+                src="assets/glass boy.png"
+                alt=""
+                class="rounded-circle"
+                width="50px"
+              />
+              <span class="d-flex flex-column mx-2">
+                <span class="card__name fw-bold text-secondary">Adam Lee</span>
+                <span class="card__name font-family fst-italic text-secondary"
+                  >June 6, 2023</span
+                >
+              </span>
+            </div>
+            <p class="font-style font-family">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do...
+            </p>
+          </div>
+        </div>
+        <div
+          class="col-12 col-md-6 col-xl-3 d-flex flex-column align-items-center justify-content-start mt-3"
+        >
+          <div class="d-flex flex-column gap-3 p-4 card rounded-4 shadow-hover  ">
+            <div class="overflow-hidden gadgets rounded-4  ">
+              <img
+              src="assets/lcd.jpg"
+              alt=""
+              width="100%"
+              class="rounded-4"
+            />            </div>
+            <span class="mx-1 d-flex align-items-center gap-1">
+              <div class="rounded-circle dot"></div>
+              Gadget
+            </span>
+            <a href="#" class="card__heading">
+              <h5 class="fw-bold lh-base ">Computer Filters Noise to Make You a Better Listener</h5>
+            </a>
+            <div class="d-flex">
+              <img
+                src="assets/glass boy.png"
+                alt=""
+                class="rounded-circle"
+                width="50px"
+              />
+              <span class="d-flex flex-column mx-2">
+                <span class="card__name fw-bold text-secondary">Adam Lee</span>
+                <span class="card__name font-family fst-italic text-secondary"
+                  >June 6, 2023</span
+                >
+              </span>
+            </div>
+            <p class="font-style">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do...
+            </p>
+          </div>
+        </div>
+        <div
+          class="col-12 col-md-6 col-xl-3 d-flex flex-column align-items-center justify-content-start mt-3"
+        >
+          <div class="d-flex flex-column gap-3 p-4 card rounded-4 shadow-hover  ">
+            <div class="overflow-hidden gadgets rounded-4 ">
+              <img
+              src="assets/charger.jpg"
+              alt=""
+              width="100%"
+              class="rounded-4"
+            />            </div>
+            <span class="mx-1 d-flex align-items-center gap-1">
+              <div class="rounded-circle dot"></div>
+              Gadget
+            </span>
+            <a href="#" class="card__heading">
+              <h5 class="fw-bold lh-base ">Computer Filters Noise to Make You a Better Listener</h5>
+            </a>
+            <div class="d-flex">
+              <img
+                src="assets/glass boy.png"
+                alt=""
+                class="rounded-circle"
+                width="50px"
+              />
+              <span class="d-flex flex-column mx-2">
+                <span class="card__name fw-bold text-secondary">Adam Lee</span>
+                <span class="card__name font-family fst-italic text-secondary"
+                  >June 6, 2023</span
+                >
+              </span>
+            </div>
+            <p class="font-style">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do...
+            </p>
+          </div>
+        </div>
+        <div
+          class="col-12 col-md-6 col-xl-3 d-flex flex-column align-items-center justify-content-start mt-3"
+        >
+          <div class="d-flex flex-column gap-3 p-4 card rounded-4 shadow-hover">
+            <div class="overflow-hidden gadgets rounded-4">
+              <img
+                src="assets/earbuds.jpg"
+                alt=""
+                width="100%"
+                class="rounded-4"
+              />
+            </div>
+            <span class="mx-1 d-flex align-items-center gap-1">
+              <div class="rounded-circle dot"></div>
+              Gadget
+            </span>
+            <a href="#" class="card__heading">
+              <h5 class="fw-bold lh-base ">Computer Filters Noise to Make You a Better Listener</h5>
+            </a>
+            <div class="d-flex">
+              <img
+                src="assets/glass boy.png"
+                alt=""
+                class="rounded-circle"
+                width="50px"
+              />
+              <span class="d-flex flex-column mx-2">
+                <span class="card__name fw-bold text-secondary">Adam Lee</span>
+                <span class="card__name font-family fst-italic text-secondary"
+                  >June 6, 2023</span
+                >
+              </span>
+            </div>
+            <p class="font-style">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do...
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- gadgets section end  -->
+
+    <!-- subscribe section start  -->
+
+    <section class="d-flex justify-content-center align-items-center mb-5">
+      <div
+        class="d-flex justify-content-between flex-column flex-md-row gap-5 align-items-center w-75 py-4 px-5 subscribe-section-bg size rounded-3"
+      >
+        <h4 class="search-dropdown text-white fw-bold subscribe-title lh-base ">
+          Subscribe To Our Newslettter
+        </h4>
+        <div
+          class="text-start rounded-pill px-1 py-1 fw-bold text-secondary px-2 py-2 subscribe-form"
+        >
+          <form
+            action="/"
+            class="d-flex justify-content-between align-items-center py-2 px-1"
+          >
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email Adress"
+              class="border-0 px-2 w-100 rounded-pill bg-transparent font-family text-white outline"
+            />
+            <button class="border-0 bg-transparent" type="submit">
+              <i class="fa fa-paper-plane text-white px-2"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- subscribe section end  -->
+
+    <hr />
+
+    <!-- footer start  -->
+
+    <footer class="container py-5">
+      <div class="container-fluid my-5">
+        <div class="row justify-content-center">
+          <div
+            class="col-xl-3 col-lg-6 col-md-6 col-12 py-3 d-flex flex-column gap-3"
+          >
+            <img src="assets/logo.png" alt="" width="100" />
+            <p class="text-secondary font-family">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+            </p>
+            <div class="row">
+              <div class="col-1">
+                <a
+                  href="https://www.facebook.com"
+                  target="_blank"
+                  class="nav-link "
+                >
+                  <i class="fa-brands fa-facebook-f shadow-lg "></i>
+                </a>
+              </div>
+              <div class="col-1">
+                <a
+                  href="https://www.twitter.com"
+                  target="_blank"
+                  class="nav-link"
+                >
+                  <i class="fa-brands fa-x-twitter shadow-lg"></i>
+                </a>
+              </div>
+              <div class="col-1">
+                <a
+                  href="https://www.pinterest.com"
+                  target="_blank"
+                  class="nav-link"
+                >
+                  <i class="fa-brands fa-pinterest shadow-lg"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-xl-3 col-lg-6 col-md-6 col-12 py-3 d-flex flex-column gap-2"
+          >
+            <div class="d-flex align-items-center">
+              <div class="rounded-4 mx-2 mb-1 footer-heading"></div>
+              <h4 class="font-family">Pages</h4>
+            </div>
+            <a href="#" class="nav-link footer-link my-1 margin-left"> Contact </a>
+            <a href="#" class="nav-link footer-link my-1 margin-left"> Plans & Pricing </a>
+            <a href="#" class="nav-link footer-link my-1 margin-left"> Support Center </a>
+            <a href="#" class="nav-link footer-link my-1 margin-left"> Our Projects </a>
+            <a href="#" class="nav-link footer-link my-1 margin-left"> Services </a>
+          </div>
+
+          <div
+            class="col-xl-3 col-lg-6 col-md-6 col-12 py-3 d-flex align-items-center"
+          >
+            <div class="row">
+              <div class="col-12 d-flex flex-column gap-3">
+                <div class="d-flex align-items-center">
+                  <div class="rounded-4 mx-2 mb-1 footer-heading"></div>
+                  <h4 class="font-family">Popular</h4>
+                </div>
+                <div class="col__card d-flex mb-2 margin-left">
+                  <div class="d-flex">
+                    <img
+                      src="assets/camera.jpg"
+                      alt=""
+                      width="85"
+                      height="85"
+                      class="bg-dark rounded-4"
+                    />
+                    <div class="d-flex flex-column justify-content-center px-3">
+                      <span class="text-start">
+                        <a
+                          href="#"
+                          class="nav-link text-start fw-bold card__heading"
+                          >Top 10 Largest Hot High-Quality Earphone Handsfree</a
+                        >
+                      </span>
+                      <span class="font-family fst-italic text-secondary"
+                        >June 6, 2023</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="col__card d-flex mt-2 margin-left">
+                  <div class="d-flex">
+                    <img
+                      src="assets/men-mobile.jpg"
+                      alt=""
+                      width="85"
+                      height="85"
+                      class="bg-dark rounded-4"
+                    />
+                    <div class="d-flex flex-column justify-content-center px-3">
+                      <span>
+                        <a href="#" class="nav-link fw-bold card__heading"
+                          >Headsets Are Better if You’re Playing Games</a
+                        >
+                      </span>
+                      <span class="font-family fst-italic text-secondary"
+                        >June 6, 2023</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-xl-3 col-lg-6 col-md-6 col-12 py-3 d-flex flex-column gap-3"
+          >
+            <div class="d-flex align-items-center">
+              <div class="rounded-4 mx-2 mb-1 footer-heading"></div>
+              <h4 class="font-family">Subscribe Now</h4>
+            </div>
+            <div class="row d-flex justify-content-end w-100">
+              <div class="col-12">
+                <div class="row gap-5">
+                  <div
+                    class="col-12 rounded-5 m-0 p-0 d-flex flex-column justify-content-center align-items-center gap-3"
+                  >
+                    <div
+                      class="form-width text-start rounded-pill px-1  py-2   bg-white footer__form-box"
+                    >
+                      <form
+                        action=""
+                        class="d-flex justify-content-between align-items-center bg-transparent"
+                      >
+                        <input
+                          type="email"
+                          placeholder="Email"
+                          class="border-0 px-2 w-75 rounded-pill outline"
+                        />
+                        <button class="border-0 bg-white rounded-pill">
+                          <i
+                            class="fa fa-paper-plane text-white px-4  footer__submit-btn submit-padding  rounded-pill"
+                          ></i>
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="text-secondary">
+              * You will receive the latest news and updates on your favorite
+              celebrities!
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      
+    </footer>
+    <div class="container  d-flex mb-3 font-family text-secondary  justify-content-center align-items-center ">
+      ©2023. All rights reserved
+    </div>
+    
+
+    <!-- footer end  -->
+
+    <script src="script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/5844408008.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
